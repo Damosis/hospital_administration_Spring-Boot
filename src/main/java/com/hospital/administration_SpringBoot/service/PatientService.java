@@ -2,7 +2,7 @@ package com.hospital.administration_SpringBoot.service;
 
 import java.util.List;
 
-import com.hospital.administration_SpringBoot.models.Consultation;
+import com.hospital.administration_SpringBoot.models.Appointment;
 import com.hospital.administration_SpringBoot.models.Patient;
 
 public interface PatientService {
@@ -15,7 +15,7 @@ public interface PatientService {
 	
 	Patient updatePatient(Long id,Patient patient);
 	
-	Patient getPatientByConsultation(Consultation consultation);
+	Patient getPatientByAppointment(Appointment appointment);
 	
 	void deleteByID(Long id);
 	

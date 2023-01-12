@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hospital.administration_SpringBoot.DAO.PatientDAO;
-import com.hospital.administration_SpringBoot.models.Consultation;
+import com.hospital.administration_SpringBoot.models.Appointment;
 import com.hospital.administration_SpringBoot.models.Patient;
 
 
@@ -35,7 +35,7 @@ public class PatientServiceImpl implements PatientService {
 		Patient _patient = new Patient();
 		_patient.setFirstname(patient.getFirstname());
 		_patient.setLastname(patient.getLastname());
-		_patient.setConsultations(patient.getConsultations());
+		_patient.setAppointments(patient.getAppointments());
 		patientDAO.save(_patient);
 		return _patient;
 		
@@ -66,7 +66,7 @@ public class PatientServiceImpl implements PatientService {
 		
 		_patient.setFirstname(patient.getFirstname());
 		_patient.setLastname(patient.getLastname());
-		_patient.setConsultations(patient.getConsultations());
+		_patient.setAppointments(patient.getAppointments());
 		
 		patientDAO.save(_patient);
 		return _patient;
@@ -84,15 +84,15 @@ public class PatientServiceImpl implements PatientService {
 	}
 
 	@Override
-	public Patient getPatientByConsultation(Consultation consultation) {
+	public Patient getPatientByAppointment(Appointment appointment) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/*@Override
-	public Patient getPatientByConsultation(Consultation consultation) {
+	public Patient getPatientByAppointment(Appointment appointment) {
 		// TODO Auto-generated method stub
-		Patient patient = patientDAO.findByConsultation(consultation);
+		Patient patient = patientDAO.findByAppointment(appointment);
 		if(!(patient == null)) {
 			return patient;
 		}

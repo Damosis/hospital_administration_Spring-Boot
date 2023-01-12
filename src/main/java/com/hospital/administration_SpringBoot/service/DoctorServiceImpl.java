@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hospital.administration_SpringBoot.DAO.DoctorDAO;
-import com.hospital.administration_SpringBoot.models.Consultation;
+import com.hospital.administration_SpringBoot.models.Appointment;
 import com.hospital.administration_SpringBoot.models.Doctor;
 
 
@@ -35,7 +35,7 @@ public class DoctorServiceImpl implements DoctorService {
 		Doctor _doctor = new Doctor();
 		_doctor.setFirstname(doctor.getFirstname());
 		_doctor.setLastname(doctor.getLastname());
-		_doctor.setConsultations(doctor.getConsultations());
+		_doctor.setAppointments(doctor.getAppointments());
 		doctorDAO.save(_doctor);
 		return _doctor;
 		
@@ -66,7 +66,7 @@ public class DoctorServiceImpl implements DoctorService {
 		
 		_doctor.setFirstname(doctor.getFirstname());
 		_doctor.setLastname(doctor.getLastname());
-		_doctor.setConsultations(doctor.getConsultations());
+		_doctor.setAppointments(doctor.getAppointments());
 		
 		doctorDAO.save(_doctor);
 		return _doctor;
@@ -84,15 +84,15 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public Doctor getDoctorByConsultation(Consultation consultation) {
+	public Doctor getDoctorByAppointment(Appointment appointment) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/*@Override
-	public Doctor getDoctorByConsultation(Consultation consultation) {
+	public Doctor getDoctorByAppointment(Appointment appointment) {
 		// TODO Auto-generated method stub
-		Doctor doctor = doctorDAO.findByConsultation(consultation);
+		Doctor doctor = doctorDAO.findByAppointment(appointment);
 		if(!(doctor == null)) {
 			return doctor;
 		}

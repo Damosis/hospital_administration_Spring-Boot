@@ -3,6 +3,8 @@ package com.hospital.administration_SpringBoot.models;
 import java.io.Serializable;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,14 +30,14 @@ public class Doctor implements Serializable {
 	private String lastname;
 	
 	@OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY)
-	private Collection<Consultation> consultations;
+	private Collection<Appointment> appointments;
 	
 	// Constructeur
 
-	/*public Doctor(String firstname, String lastname) {
+	public Doctor(String firstname, String lastname) {
 		this.firstname=firstname;
 		this.lastname=lastname;
-	}*/
+	}
 
 	public Doctor() {
 		// TODO Auto-generated constructor stub
@@ -62,11 +64,13 @@ public class Doctor implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public Collection<Consultation> getConsultations() {
-		return consultations;
+	@JsonIgnore
+	public Collection<Appointment> getAppointments() {
+		return appointments;
 	}
-	public void setConsultations(Collection<Consultation> consultations) {
-		this.consultations = consultations;
+	@JsonIgnore
+	public void setAppointments(Collection<Appointment> appointments) {
+		this.appointments = appointments;
 	}
 	
 }

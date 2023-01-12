@@ -15,17 +15,17 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "consultation")
-public class Consultation implements Serializable {
+@Table(name = "appointment")
+public class Appointment implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_consultation;
+	private Long id_appointment;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-	private Timestamp dateConsultation;
+	private Timestamp dateAppointment;
 	
 	@OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "FK_id_patient", referencedColumnName = "id_patient")
@@ -37,31 +37,31 @@ public class Consultation implements Serializable {
 	
 	// Constructeur
 
-	public Consultation(Timestamp dateConsultation, Doctor doctor, Patient patient) {
+	public Appointment(Timestamp dateAppointment, Doctor doctor, Patient patient) {
 			
-		this.dateConsultation=dateConsultation;
+		this.dateAppointment=dateAppointment;
 		this.doctor=doctor;
 		this.patient=patient;
 	}
 
-	public Consultation() {
+	public Appointment() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long getId_consultation() {
-		return id_consultation;
+	public Long getId_appointment() {
+		return id_appointment;
 	}
 
-	public void setId_consultation(Long id_consultation) {
-		this.id_consultation = id_consultation;
+	public void setId_appointment(Long id_appointment) {
+		this.id_appointment = id_appointment;
 	}
 
-	public Timestamp getDateConsultation() {
-		return dateConsultation;
+	public Timestamp getDateAppointment() {
+		return dateAppointment;
 	}
 
-	public void setDateConsultation(Timestamp dateConsultation) {
-		this.dateConsultation = dateConsultation;
+	public void setDateAppointment(Timestamp dateAppointment) {
+		this.dateAppointment = dateAppointment;
 	}
 
 	public Patient getPatient() {

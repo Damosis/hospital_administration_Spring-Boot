@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hospital.administration_SpringBoot.models.Consultation;
+import com.hospital.administration_SpringBoot.models.Appointment;
 import com.hospital.administration_SpringBoot.models.Doctor;
 import com.hospital.administration_SpringBoot.service.DoctorService;
 
 @RestController
-@RequestMapping(path = "/api/doctors")
+@RequestMapping(path = "/hospital/doctors")
 public class DoctorController {
 
 	
@@ -64,10 +64,10 @@ public class DoctorController {
 		
 	}
 	
-	@GetMapping(path = "/consultation/{id}")
-	public ResponseEntity<Doctor> getDoctorsByConsultation(@RequestBody Consultation consultation){
+	@GetMapping(path = "/appointment/{id}")
+	public ResponseEntity<Doctor> getDoctorsByAppointment(@RequestBody Appointment appointment){
 		try {
-			return new ResponseEntity<Doctor>(doctorService.getDoctorByConsultation(consultation),HttpStatus.OK);
+			return new ResponseEntity<Doctor>(doctorService.getDoctorByAppointment(appointment),HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
