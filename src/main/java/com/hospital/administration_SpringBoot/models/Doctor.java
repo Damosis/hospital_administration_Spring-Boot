@@ -32,10 +32,10 @@ public class Doctor implements Serializable {
 	
 	// Constructeur
 
-	public Doctor(String firstname, String lastname) {
+	/*public Doctor(String firstname, String lastname) {
 		this.firstname=firstname;
 		this.lastname=lastname;
-	}
+	}*/
 
 	public Doctor() {
 		// TODO Auto-generated constructor stub

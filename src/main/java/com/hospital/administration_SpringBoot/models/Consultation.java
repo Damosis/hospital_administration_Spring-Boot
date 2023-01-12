@@ -27,11 +27,11 @@ public class Consultation implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Timestamp dateConsultation;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "FK_id_patient", referencedColumnName = "id_patient")
     private Patient patient;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "FK_id_doctor", referencedColumnName = "id_doctor")
     private Doctor doctor;
 	

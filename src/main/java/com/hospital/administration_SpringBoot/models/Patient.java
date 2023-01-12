@@ -13,7 +13,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
 @Entity
 @Table(name = "patient")
 public class Patient implements Serializable {
@@ -33,10 +32,10 @@ public class Patient implements Serializable {
 	
 	// Constructeur
 
-	public Patient(String firstname, String lastname) {
+	/*public Patient(String firstname, String lastname) {
 		this.firstname=firstname;
 		this.lastname=lastname;
-	}
+	}*/
 
 	public Patient() {
 		// TODO Auto-generated constructor stub
