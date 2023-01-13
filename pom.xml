@@ -37,6 +37,19 @@
 			<artifactId>spring-boot-jpa-postgresql</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- Mockito -->
+        <dependency>
+	    	<groupId>org.mockito</groupId>
+	    	<artifactId>mockito-junit-jupiter</artifactId>
+	    	<scope>test</scope>
+		</dependency>
+		
+		<!-- JUnit -->
+		<dependency>
+		    <groupId>org.junit.vintage</groupId>
+		    <artifactId>junit-vintage-engine</artifactId>
+		    <version>5.7.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
