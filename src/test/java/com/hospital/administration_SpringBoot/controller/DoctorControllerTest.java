@@ -1,5 +1,6 @@
 package com.hospital.administration_SpringBoot.controller;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -46,6 +47,76 @@ public class DoctorControllerTest {
 		
 		assertEquals(2, resultat.getBody().size());
 		assertEquals(HttpStatus.OK, resultat.getStatusCode());
+		
+	}
+	
+	@Test
+	public void getDoctorbyID() throws Exception {
+		
+		//given
+		Doctor doctor = new Doctor();
+		
+		doctor.setId_doctor(2L);
+		
+		//when
+		
+		Mockito.when(doctorService.getDoctorByID(2L)).thenReturn(doctor);
+		ResponseEntity<Doctor> response =  doctorController.getDoctorByID(2L);
+		
+		//Then
+		assertEquals(HttpStatus.OK, response.getStatusCode());	
+	}
+	
+	
+	@Test
+	public void createDoctor_WhitoutException() throws Exception {
+		
+		//given
+		Doctor doctor = new Doctor();
+		doctor.setId_doctor(3L);
+		doctor.setFirstname("We love code");
+		doctor.setLastname("Gilles H");
+		
+		//When
+		Mockito.when(doctorService.saveDoctor(doctor)).thenReturn(doctor);
+		ResponseEntity<Doctor> response = doctorController.saveDoctor(doctor);
+		
+		//Then
+		assertThat(response.getBody().getId_doctor()).isGreaterThan(0);
+		
+	}
+	
+	@Test
+	public void deleteDoctorByID() throws Exception {
+		
+		//given 
+		Doctor doctor = new Doctor();
+		doctor.setId_doctor(3L);
+		doctor.setFirstname("We love code");
+		doctor.setLastname("Gilles H");
+		
+		//When
+		doctorController.deleteDoctorByID(30L);
+		ResponseEntity<Doctor> retrievedDoctor = doctorController.getDoctorByID(doctor.getId_doctor());
+		
+		//Then
+		assertThat(retrievedDoctor.getBody()).isNull();
+	}
+	
+	@Test
+	public void deleteDoctors() throws Exception {
+		
+		Doctor doctor = new Doctor();
+		doctor.setId_doctor(3L);
+		doctor.setFirstname("We love France");
+		doctor.setLastname("Gilles H");
+		
+		doctorController.deleteDoctors();
+		ResponseEntity<Doctor> retrievedDoctor = doctorController.getDoctorByID(doctor.getId_doctor());
+		
+		//Then
+		assertThat(retrievedDoctor.getBody()).isNull();
+		
 		
 	}
 }
